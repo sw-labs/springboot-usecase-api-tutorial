@@ -13,7 +13,7 @@ tasks:
     # init se ejecuta solo la primera vez
     init: |
       sdk install springboot 
-      sdk install java 22.fx-zulu < /dev/null
+      sdk install java 22-tem < /dev/null
       if [ -f pom.xml ]; then mvn package -DskipTests; fi
 
 # Extensiones
