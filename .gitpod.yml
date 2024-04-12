@@ -11,9 +11,11 @@ tasks:
   - name: Compila proyecto sin ejecutar pruebas
     # before se ejecuta siempre
     # init se ejecuta solo la primera vez
-    init: |
+    before: |
       sdk install springboot 
       sdk install java 22-tem < /dev/null
+
+    init: |
       if [ -f pom.xml ]; then mvn package -DskipTests; fi
 
 # Extensiones
