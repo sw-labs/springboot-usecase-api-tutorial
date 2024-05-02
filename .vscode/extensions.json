@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "pivotal.vscode-spring-boot",
+        "vscjava.vscode-java-pack",
+        "ms-vscode.live-server",
+        "jebbs.plantuml"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+
+    "plantuml.render": "Local",
+    "plantuml.jar": "/usr/share/plantuml/plantuml.jar",
+    "plantuml.server": "https://www.plantuml.com/plantuml/",
+    "plantuml.java": "/home/gitpod/.sdkman/candidates/java/current/bin/java",
+    "plantuml.exportFormat": "png",
+    "plantuml.diagramsRoot": "/docs/uml",
+    "plantuml.exportOutDir": "/docs/images",
+
+    "markdown.preview.openMarkdownLinks": "inEditor",
+
+}

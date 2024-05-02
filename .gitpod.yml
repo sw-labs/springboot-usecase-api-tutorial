@@ -29,3 +29,6 @@ vscode:
   extensions:
     - pivotal.vscode-spring-boot
     - vscjava.vscode-java-pack
+    - jebbs.plantuml
+    - ms-vscode.live-server
+
