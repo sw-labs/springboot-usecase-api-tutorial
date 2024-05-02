@@ -4,10 +4,16 @@
 
 ---
 
-* [Casos de uso](./use-cases/README.md)
-* [Modelo de dominio (Clases)](./clases-dominio.md)
-* [Diseño del servicio (Clases)](./clases-servicio.md)
+## Modelamiento 
 
----
+* Análisis
+  * [Casos de uso](./use-cases/README.md)
+  * [Diagrama de Clases](./clases-dominio.md)
+* Diseño
+  * [Diagrama de Clases](./clases-diseno.md)
+
+## Proyecto
 
 * [Sprints](./sprints/README.md)
+
+

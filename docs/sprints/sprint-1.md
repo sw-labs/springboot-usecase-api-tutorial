@@ -25,7 +25,7 @@ Registrar la actividad por parte de un deportista
     - Crear servicio web
     - Crear pruebas unitarias
     - Probar caso de uso
-    - Revisar el código
+    - Revisar el código |
 - Registrar ubicación durante un trayecto
     - Diseñar interfaz de usuario
     - Diseñar diagrama de clases

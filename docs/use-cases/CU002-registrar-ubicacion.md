@@ -1,16 +1,39 @@
-# CU002 -- registrar ubicación
+# CU002 : Agregar ubicación al Trayecto
 ---
+
+**Descripción:**  Cuando un deportista avanza en su trayecto en bicicleta, registra cada cinco minutos la longitud y la latitud de la ubicación actual como parte del trayecto actual.
+
+**Actor:** Deportista
+
+```plantuml
+@startuml "iniciar trayecto"
+left to right direction
+skinparam packageStyle rectangle
+
+actor deportista
+rectangle CycleTrainer {
+  deportista -- (Agregar ubicación al Trayecto)
+}
+
+@enduml
+```
 
 ## Flujo de Eventos (Guión)
 
 
 | Actor  | Sistema |
 |--------|---------|
-| | 1. verifica que haya un trayecto en curso |
-| | 1. determina la ubicación actual |
-| | 2. determina fecha y hora |
-| | 3. determina id del trayecto en curso |
-| | 4. almacena una nueva ubicación con fecha y hora actual y ubicación |
+| 1. Ingresa el id del trayecto en curso ||
+| | 2. verifica que exista un trayecto con ese id |
+| | 3. verifica que el trayecto esté activo |
+| 4. Ingresa la longitud y la latitud de la ubicación actual | |
+| | 5. Determina fecha y hora |
+| | 6. Agrega  una nueva ubicación con fecha y hora actual y la longitud y latitud de la ubicación al trayecto en curso |
 
 
+## Excepciones
 
+2. Cuando no existe un trayecto con ese id
+
+
+3. Cuando el trayecto seleccionado no está activo
