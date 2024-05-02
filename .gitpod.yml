@@ -6,17 +6,23 @@
 image: gitpod/workspace-java-17
 
 # Comandos a ejecutar al inicio del proyecto
+# - primera vez : before --> init --> command
+# - al reiniciar: before --> command
 tasks:
 
   - name: Compila proyecto sin ejecutar pruebas
     # before se ejecuta siempre
-    # init se ejecuta solo la primera vez
     before: |
       sdk install springboot 
       sdk install java 22-tem < /dev/null
 
+    # init se ejecuta solo la primera vez
     init: |
       if [ -f pom.xml ]; then mvn package -DskipTests; fi
+
+    # command se ejecuta para iniciar el servicio
+    command:
+      if [ -f pom.xml ]; then mvn spring-boot:run -DskipTests; fi
 
 # Extensiones
 vscode:
