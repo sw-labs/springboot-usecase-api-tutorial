@@ -3,7 +3,7 @@
 
 # Uso de imagen de Docker específica
 # ver: https://hub.docker.com/u/gitpod
-image: gitpod/workspace-java-17
+# image: gitpod/workspace-java-17
 
 # Comandos a ejecutar al inicio del proyecto
 # - primera vez : before --> init --> command
