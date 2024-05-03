@@ -14,7 +14,6 @@ tasks:
     # before se ejecuta siempre
     before: |
       sdk install springboot 
-      sdk install java 22-tem < /dev/null
 
     # init se ejecuta solo la primera vez
     init: |
