@@ -19,9 +19,9 @@ tasks:
     init: |
       if [ -f pom.xml ]; then mvn package -DskipTests; fi
 
-    # command se ejecuta para iniciar el servicio
+    # command se ejecuta para iniciar servicios
     command: |
-      # if [ -f pom.xml ]; then mvn spring-boot:run -DskipTests; fi
+      if [ -f docker-compose.yml ]; then docker compose up -d; fi
 
 # Extensiones
 vscode:
