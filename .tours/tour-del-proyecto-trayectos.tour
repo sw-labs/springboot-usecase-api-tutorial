@@ -1,0 +1,107 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Tour del proyecto Trayectos",
+  "steps": [
+    {
+      "file": "pom.xml",
+      "description": "Este es un proyecto desarrollado en Java utilizando Maven. \n\nEn la carpeta raíz del proyecto hay un archivo `pom.xml`con la definición de los módulos (subproyectos) en el repositorio.",
+      "line": 6
+    },
+    {
+      "file": "pom.xml",
+      "description": "En el archivo `pom.xml` hay código XML que `<modules>...</modules>` que define los módulos del proyecto. \n\nEn esta sección se menciona un módulo `trayectos` que está en la carpeta con ese mismo nombre `trayectos`.",
+      "line": 13
+    },
+    {
+      "file": "trayectos/pom.xml",
+      "description": "Dentro de la carpeta `trayectos` hay otro archivo `pom.xml` que define la configuración y las dependencias del módulo `trayectos`.",
+      "line": 12
+    },
+    {
+      "file": "trayectos/pom.xml",
+      "description": "El proyecto `trayectos` tiene una serie de dependencias que se conocen como `starters` de Spring Boot.\n\n- `starter-web`: permite crear aplicaciones y servicios web\n- `devtools`: para que la aplicación se cargue de nuevo cada vez que se modifican los archivos\n- `data-jpa`: permite crear aplicaciones que se conectan a bases e datos usando JPA\n- `mysql-connector-j`: es un driver para conectarse a bases de datos MySQL\n- `starter-test`: para crear pruebas de unidad automatizadas\n- `lombok`: para generar automáticamente código de clases, como los métodos get() y set()",
+      "line": 24
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/TrayectosApplication.java",
+      "description": "La clase `TrayectosApplication` tiene la anotación `@SpringBootApplication`.\n\nEsta anotación se usa para indicar que este proyecto usa el framework de Spring Boot y que todos los paquetes debajo de `com.bicicletas.trayectos` contiene clases que están anotadas y se deben cargar automáticamente.",
+      "line": 7
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Trayecto.java",
+      "description": "En el paquete `com.bicicletas.trayectos.modelo`, la clase `Trayecto` está anotada con `@Entity`, indicando que es una clase de tipo Entidad que debe convertirse en tabla en la base de datos.",
+      "line": 24
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Trayecto.java",
+      "description": "La clase tiene una serie de atributos:\n\n- El atributo `id` de tipo `UUID`, un identificado único universal, y está anotada con `@Id` indicando que existe una llave primaria.\n\n\n\n",
+      "line": 28
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Trayecto.java",
+      "description": "- el atributo `horaInicio`, de tipo `Date`, está anotado con `@Temporal` indicando que se debe grabar como un `TIMESTAMP` (con fecha y hora)",
+      "line": 31
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Trayecto.java",
+      "description": "los otros atributos:\n\n- el atributo `horaFin` tambien es de tipo `Date` y está anotado con `@Temporal` indicando que se debe grabar como un `TIMESTAMP`\n- el atributo `duracion` es de tipo `Long`\n- el atributo `enProceso` es de tipo `boolean`, y\n- la lista `ubicaciones` es una lista de objetos `Ubicacion` y está anotado con `@OneToMany`, indicando que era una relación de uno a muchos.",
+      "line": 34
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Ubicacion.java",
+      "description": "La clase `Ubicacion` también está anotada como `@Entity`, indicando que es una entidad que se va a convertir en una tabla de la base de datos.\n",
+      "line": 22
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/modelo/Ubicacion.java",
+      "description": "La clase `Ubicacion` tiene una serie de atributos que se convierten en columnas en la tabla correspondiente:\n\n- el atributo `id`, de tipo `UUID`, está anotado con `@Id` indicando que es el identificador (la llave primaria)\n- el atributo `hora`, de tipo `Date`, esta anotado con `@Temporal` e indica que se debe grabar como un `TIMESTAMP`\n- el atributo `longitud`, de tipo `Double`\n- el atributo `latitud`, de tipo `Double`\n- el atributo `trayecto`, de tipo `Trayecto`, está anotado con `@ManyToOne`, indicando que tiene una relación de muchos a uno",
+      "line": 25
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/dataAccess/TrayectosRepository.java",
+      "description": "La interfaz `TrayectosRepository` está anotada como `@Repository` indicando que es un repositorio, una clase que permite crear, modificar y eliminar datos en la tabla.\n\nLa interfaz extiende `JpaRepository<Trayecto, UUID>` indicando que almacena objetos de tipo `Trayecto` y que la llave primaria es de tipo `UUID`.\n",
+      "line": 18
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/dataAccess/UbicacionesRepository.java",
+      "description": "La interfaz `UbicacionesRepository` está anotada como `@Repository` indicando que es un repositorio.\n\nLa interfaz extiende `JpaRepository<Ubicacion, UUID>` indicando que almacena objetos de tipo `Ubicacion` y que la llave primaria es de tipo `UUID`.\n",
+      "line": 13
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/logica/TrayectosService.java",
+      "description": "La clase `TrayectosService` está anotada con `@Service` indicando que es una clase que contiene servicios de lógica de negocios.",
+      "line": 20
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/logica/TrayectosService.java",
+      "description": "El método `iniciarTrayecto` implementa el caso de uso **CU001 - Iniciar Trayecto**.\n\nEl método recibe como parámetros los datos que ingresa el actor en el caso de uso. \nEn este caso, el método recibe como parámetros la ubicación actual, es decir valores de `longitud` y `latitud`.\n\nEl método está anotado con `@Transactional` para indicar que el método realiza una transacción en la base de datos.",
+      "line": 32
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/logica/TrayectosService.java",
+      "description": "Para implementar los otros casos de uso...\n- se pueden agregar métodos a la clase `TrayectosService`, y \n- agregar pruebas de unidad en la clase `TrayectosServiceTests`\n\n**Próximos pasos:** Implementar otros casos de uso.",
+      "line": 66
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/logica/TrayectosService.java",
+      "description": "El código del método `iniciarTrayecto` contiene el código que implementa cada uno de los pasos del caso de uso.",
+      "line": 35
+    },
+    {
+      "file": "trayectos/src/test/java/com/bicicletas/trayectos/logica/TrayectosServiceTests.java",
+      "description": "La clase `TrayectosServiceTests` incluye las pruebas de unidad para la clase `TrayectosService`. Por eso, esta clase está anotada con `@SpringBootTest`, para indicar que esta clase tiene pruebas. \n\nEn Visual Studio Code (y otros entornos de desarrollo), al lado de la clase y de los métodos se pueden ver íconos para ejecutar las pruebas.\n\n**NOTA:** para ejecutar las pruebas, primero debe ejecutar el servidor de bases de datos MYSQL usando `docker compose up -d`",
+      "line": 24
+    },
+    {
+      "file": "trayectos/src/test/java/com/bicicletas/trayectos/logica/TrayectosServiceTests.java",
+      "description": "El método `iniciarTrayecto_almacenaTrayectoYUbicacion` implementa una prueba del caso de uso  en el método `iniciarTrayecto`.\n\nEste método está anotado con `@Test` para indicar que es una prueba automatizada y con `@Transactional` indicando que es un método que ejecuta transacciones en la base de datos. \n",
+      "line": 37
+    },
+    {
+      "file": "trayectos/src/main/java/com/bicicletas/trayectos/logica/TrayectosService.java",
+      "description": "Para implementar nuevos casos de uso, se  pueden\n- agregar métodos por cada caso de uso en la clase `TrayectosService`\n- agregar métodos para las pruebas de unidad en la clase `TrayectosServiceTests`\n\n**Próximos pasos:** implementar los otros casos de uso del proyecto.",
+      "line": 66
+    }
+  ],
+  "isPrimary": true
+}
