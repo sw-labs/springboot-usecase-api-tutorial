@@ -33,7 +33,7 @@ class TrayectosServiceTests {
 
 	@Test
 	@Transactional
-	void agregaTrayecto() {
+	void iniciarTrayecto_almacenaTrayectoYUbicacion() {
 
 		try {
 
@@ -47,9 +47,20 @@ class TrayectosServiceTests {
 			Trayecto t = resultado.get();
 			assertTrue(t.isEnProceso(), "No aparece como un trayecto activo");
 
+			assertEquals(1, t.getUbicaciones().size(), "Agregó más de una ubicación al trayecto");
+
 			Ubicacion u = t.getUbicaciones().get(0);
-			assertEquals(27.0, u.getLongitud());
-			assertEquals(42.0, u.getLatitud());
+			assertEquals(27.0, u.getLongitud(), "La longitud en la base de datos no coincide con el parámetro");
+			assertEquals(42.0, u.getLatitud(), "La latitud en la base de datos no coincide con el parámetro");
+
+		} catch (Exception e) {
+			fail("Genero excepción y no debería", e);
+		}
+
+		try {
+			
+			assertEquals(1, trayectos.count(), "Agregó más de un trayecto a la base de datos");		
+			assertEquals(1, ubicaciones.count(), "Agregó más de una ubicación a la base de datos");
 
 		} catch (Exception e) {
 			fail("Genero excepción y no debería", e);

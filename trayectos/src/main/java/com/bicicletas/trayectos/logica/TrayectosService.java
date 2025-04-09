@@ -11,6 +11,8 @@ import com.bicicletas.trayectos.dataAccess.UbicacionesRepository;
 import com.bicicletas.trayectos.modelo.Trayecto;
 import com.bicicletas.trayectos.modelo.Ubicacion;
 
+import jakarta.transaction.Transactional;
+
 // Controlador de casos de uso
 // tiene métodos, uno por cada caso de uso
 @Service
@@ -24,6 +26,7 @@ public class TrayectosService {
 
     // CU001 Iniciar Trayecto
     // 1. Actor ingresa la ubicación actual
+    @Transactional
     public UUID iniciarTrayecto(Double longitud, Double latitud) 
         throws Exception
     {
@@ -43,19 +46,16 @@ public class TrayectosService {
         trayecto.setHoraInicio(fechaActual);
         trayecto.setEnProceso(true);
         trayecto = trayectos.save(trayecto);
-        System.out.println("id = " + trayecto.getId());
 
         // 6. Agrega una ubicación con la longitud y latitud de ubicación inicial a la trayectoria
         Ubicacion ubicacion = new Ubicacion();
         ubicacion.setLongitud(longitud);
         ubicacion.setLatitud(latitud);
+        ubicacion.setTrayecto(trayecto);
+        ubicacion = ubicaciones.save(ubicacion);
 
         trayecto.getUbicaciones().add(ubicacion);
-        ubicacion.setTrayecto(trayecto);
-            
         trayecto = trayectos.save(trayecto);
-        ubicacion = ubicaciones.save(ubicacion);
-        System.out.println("id = " + trayecto.getId());
 
         // 7. Retorna el id del nuevo trayecto |
         return trayecto.getId();
