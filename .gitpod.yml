@@ -30,4 +30,5 @@ vscode:
       - "vmware.vscode-boot-dev-pack"
       - "ms-vscode.live-server"
       - "jebbs.plantuml"
+      - "vsls-contrib.codetour"
 
