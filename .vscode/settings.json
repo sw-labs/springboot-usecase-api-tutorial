@@ -2,7 +2,7 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.compile.nullAnalysis.mode": "automatic",
 
-    "plantuml.render": "Local",
+    "plantuml.render": "PlantUMLServer",
     "plantuml.jar": "",
     "plantuml.server": "https://www.plantuml.com/plantuml/",
     "plantuml.java": "/usr/local/sdkman/candidates/java/current/bin/java",
