@@ -13,7 +13,7 @@ tasks:
   - name: Compila proyecto sin ejecutar pruebas
     # before se ejecuta siempre
     before: |
-      sdk install springboot 
+      sdk env install
 
     # init se ejecuta solo la primera vez
     init: |
@@ -26,8 +26,8 @@ tasks:
 # Extensiones
 vscode:
   extensions:
-    - pivotal.vscode-spring-boot
-    - vscjava.vscode-java-pack
-    - jebbs.plantuml
-    - ms-vscode.live-server
+      - "vscjava.vscode-java-pack"
+      - "vmware.vscode-boot-dev-pack"
+      - "ms-vscode.live-server"
+      - "jebbs.plantuml"
 
