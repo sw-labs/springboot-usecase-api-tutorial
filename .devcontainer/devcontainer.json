@@ -21,10 +21,10 @@
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
 			"settings": { 
-				"plantuml.render": "PlantUMLServer",
-				"plantuml.jar": "/usr/share/plantuml/plantuml.jar",
+				"plantuml.render": "Local",
+				"plantuml.jar": "",
 				"plantuml.server": "https://www.plantuml.com/plantuml/",
-				"plantuml.java": "/home/gitpod/.sdkman/candidates/java/current/bin/java",
+				"plantuml.java": "/usr/local/sdkman/candidates/java/current/bin/java",
 				"plantuml.exportFormat": "png",
 				"plantuml.diagramsRoot": "/docs/uml",
 				"plantuml.exportOutDir": "/docs/images"			
