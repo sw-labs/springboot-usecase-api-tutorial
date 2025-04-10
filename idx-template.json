@@ -1,0 +1,7 @@
+{
+    "name": "Tutorial de Casos de Uso",
+    "description": "Tutorial implementando casos de uso en una aplicación web Java usando Spring Boot",
+    "categories": ["Backend"],
+    "icon": "https://www.gstatic.com/monospace/231115/logo_java.svg",
+    "publisher": "SW Labs"
+}
