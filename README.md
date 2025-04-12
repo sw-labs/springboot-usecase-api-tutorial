@@ -83,14 +83,14 @@ En este tutorial, aprenderá a
 
 ## Solución
 
-Se puede ver una solución al taller en el proyecto `trayectos-completo`.
+Se puede ver una solución parcial al taller en el proyecto `trayectos-completo`.
 
-Para ver el proyecto, es posible agregar el módulo en el archivo `pom.xml` en la carpeta raíz.
+1. Para revisar y ejecutar el proyecto, es posible agregar el módulo en el archivo `pom.xml` en la carpeta raíz.
 
-  ```
-    <modules>
-        <module>trayectos</module>
-		    <module>trayectos-completo</module>
-    </modules>
-  ```
+    ```
+        <modules>
+            <module>trayectos</module>
+                <module>trayectos-completo</module>
+        </modules>
+    ```
 
