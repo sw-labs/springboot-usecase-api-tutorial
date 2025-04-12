@@ -31,12 +31,21 @@
 			},
 			
 			// Add the IDs of extensions you want installed when the container is created.
+			// Abril 2025 -- use extensions supported in OpenVSX
 			"extensions": [
-				"vscjava.vscode-java-pack",
-				"vmware.vscode-boot-dev-pack",
+				"redhat.java@1.40.0",
+				"vscjava.vscode-java-test@0.43.0",
+				"vscjava.vscode-java-debug",
+				"vscjava.vscode-java-dependency",
+				"vscjava.vscode-maven",
+				"visualstudioexptteam.vscodeintellicode",
+				"vmware.vscode-spring-boot",
+				"vscjava.vscode-spring-initializr",
+				"vscjava.vscode-spring-boot-dashboard",
 				"ms-vscode.live-server",
 				"jebbs.plantuml",
-				"vsls-contrib.codetour"		
+				"vsls-contrib.codetour",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}
