@@ -1,46 +1,39 @@
-# Creando una aplicación web con Spring Boot
+# Implementando Casos de Uso en una aplicación web en Spring
 
-> En este tutorial creará una pequeña aplicación web usando [Spring Boot](https://spring.io/projects/spring-boot): un conjunto de herramientas y librerías que facilitan el desarrollo de aplicaciones empresariales. 
+> En este tutorial implementará unos casos de uso en una aplicación web desarrollada en [Spring Boot](https://spring.io/projects/spring-boot). 
+> Para implementar cada caso de uso es necesario implementar métodos que ejecutan el caso de uso y métodos que implementan pruebas automatizadas. 
 
 ---
 
 ## Objetivos de aprendizaje
 
 En este tutorial, aprenderá a 
-- Desarrollar una aplicación web usando Spring Boot
-- Generar respuestas a peticiones HTTP GET
-- Mostrar páginas HTML como respuesta a peticiones HTTP GET
+- Desarrollar métodos que implementan casos de uso
+- Desarrollar métodos que implementan pruebas automatizadas para los casos de uso
 
 
 ## Requisitos previos
 
+- Conocimientos básicos de casos de uso
 - Conocimientos básicos de programación, Java y bases de datos.
-- Una instancia de [Gitpod](https://gitpod.io/) o un computador con [Docker Desktop](https://www.docker.com/products/docker-desktop/) y [Visual Studio Code](https://code.visualstudio.com/) instalado. 
+- Conocimientos básicos de Spring Boot
+- Un entorno de desarrollo para Java
+  - Un computador Windows, Mac o Linux, con [Docker Desktop](https://www.docker.com/products/docker-desktop/) y [Visual Studio Code](https://code.visualstudio.com/) instalado. 
+  - Una instancia de [Github Codespaces](https://github.com/features/codespaces), [Firebase Studio](https://firebase.google.com/docs/studio) o [CodeSandbox](https://codesandbox.io/dashboard)
 
----
 
-## Paso a paso
 
-### 1. Crear una copia del repositorio
+## Instrucciones para trabajar en el proyecto
 
-- Navegue hasta el repositorio del proyecto en Github
-    - [https://github.com/sw-labs/springboot-holamundo-tutorial](https://github.com/sw-labs/springboot-holamundo-tutorial)
+### Para trabajar en su computador
 
-- Cree una copia del repositorio usando el botón "Use this Template", la opción "Create a new repository"
+1. Navegue hasta el repositorio del proyecto en Github
+    - [https://github.com/sw-labs/springboot-usecase-tutorial](https://github.com/sw-labs/springboot-usecase-tutorial)
+
+2. Cree una copia del repositorio usando el botón "Use this Template", la opción "Create a new repository"
     - asigne un nombre al nuevo repositorio
 
-### 2. Abra el nuevo repositorio 
-
-- Abra el repositorio que acaba de crear usando Gitpod o Visual Studio Code
-    - Para usar Gitpod, en el navegador, agregue  `gitpod.io` al inicio de la ruta URL del repositorio
-
-    ```
-    # Si el URL es https://github.com/ejemplo/spring
-    # Use en el navegador:
-    
-    gitpod.io#https://github.com/ejemplo/spring
-    ```
-    - Para usar Visual Studio Code, haga una copia del proyecto y use el comando `code` 
+3. Haga una copia local del proyecto en su computadora usando el comando `git clone`
 
     ```
     # Si el repositorio es https://github.com/ejemplo/spring
@@ -48,156 +41,56 @@ En este tutorial, aprenderá a
 
     git clone https://github.com/ejemplo/spring
     cd spring
+    ```
+
+4. Inicie Visual Studio Code usando el comando `code` 
+
+    ```
     code . 
     ```
 
+5. Al iniciar Visual Studio Code, ejecute el proyecto en el devcontainer.
+    * Ejecute `Dev Containers: Open in Container`
 
-### 3. Cree un nuevo proyecto de Spring
+### Para trabajar desde Internet
 
-- En Gitpod o Visual Studio Code, presiones [F1] para mostrar las opciones del editor
-- Seleccione la opción  `Spring Initializr: Create a new Maven Project...`
-- Seleccione la última opción de Spring Boot
-- Seleccione el lenguaje Java
-- Indique el nombre del grupo, algo similar al nombre de una empresa, por ejemplo "com.empresa"
-- Indique el nombre del proyecto, por ejemplo "tutorial"
-- Seleccione el tipo de paquete "jar"
-- Seleccione la versión de Java "22"
-- Seleccione las dependencias "Spring Web" y "Sprint Boot DevTools". Presione Enter cuando haya terminado de seleccionar las dependencias.
--  Indique la carpeta donde se grabará el proyecto. Use el nombre recomendado por el editor.
+- Ejecute el entorno de desarrollo cuando alguno de estos comandos
 
----
+    - [Ejecutar en Firebase Studio](https://idx.google.com/new?template=https://github.com/sw-labs/springboot-usecase-tutorial)
+    - [Ejecutar en Github Codespaces](https://github.com/codespaces/new?skip_quickstart=true&machine=standardLinux32gb&repo=792310042&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
-Al crear el proyecto se crea un proyecto Spring con una serie de clases y archivos.
 
-Si se usó el nombre de empresa "com.empresa" y el nombre de proyecto "tutorial", debieron crearse una serie de archivos similares a los siguientes:
+## Instrucciones
 
-```
-/demo
-  /src
-    /main
-      /java                         <-- carpeta con código fuente java
-        /com/empresa/tutorial       <-- paquete en java
-          TutorialApplication.java  <-- clase en java
-      
-      /resources                    <-- carpeta con archivos adicionales
-        /static
-        /templates
-        application.properties      <-- archivo de configuración
-  
-            :  (otros archivos)
-``` 
+1. Revise el modelo de clases del proyecto
+    * [clases-dominio.md](docs/clases-dominio.md)
+    * [clases-diseno.md](docs/clases-diseno.md)
 
-**NOTA:** Los nombres pueden variar de acuerdo a los datos suministrados en la configuración.
+2. Revise la documentación de los casos de uso
 
----
+    * [CU001-iniciar-trayecto.md](docs/use-cases/CU001-iniciar-trayecto.md)
+    * [CU002-registrar-ubicacion.md](docs/use-cases/CU002-registrar-ubicacion.md)
+    * [CU003-finalizar-trayecto.md](docs/use-cases/CU003-finalizar-trayecto.md)
+    * [CU004-consultar-trayecto.md](docs/use-cases/CU004-consultar-trayecto.md)
+    * [CU005-consultar-resumen-trayectos.md](docs/use-cases/CU005-consultar-resumen-trayectos.md)
 
-### 4. Agregue un paquete para Controladores
+3. Ejecute el Code Tour de `Código Inicial` y revise el código existente en el proyecto.
 
-> Los controladores son clases Java que responden a eventos y a solicitudes de los usuarios. Para el ejemplo, estos controladores van a responder a solicitudes web hechas con el protocolo HTTP
+4. Ejecute el Code Tour de `Paso a Paso` y modifique el proyecto para implementar el caso de uso CU002
 
-- Seleccione el paquete (la carpeta) donde se encuentra la clase `Application`. Para el ejemplo, seleccione el paquete `com.empresa.tutorial`
-- Haga clic derecho y seleccione "New..." y la opción "Package"
-- Indique el nombre del nuevo paquete. Por ejemplo `com.empresa.tutorial.controllers`
+5. Implemente los otros casos de uso CU003, CU004 y CU005.
 
-### 5. Agregue una clase Controladora REST
 
-- Seleccione el paquete que acaba de crear
-- Haga clic derecho y seleccione "New..." y la opción "Class"
-- Indique el nombre de la clase `HolaMundoController`
+## Solución
 
-### 6. Escriba el código para crear el controlador
+Se puede ver una solución al taller en el proyecto `trayectos-completo`.
 
-> Los Controladores REST atienden solicitudes web hechas con el protocolo HTTP. Estos controladores pueden atender, por ejemplo, solicitudes GET que son enviadas por un navegador web para obtener una página de internet.
-
-- Agregue una anotación `@RestController" a la clase
-- Agregue un método `hola()` que tenga la anotación `@GetMapping` indicando que este método debe responder a la ruta `/`
+Para ver el proyecto, es posible agregar el módulo en el archivo `pom.xml` en la carpeta raíz.
 
   ```
-  package com.empresa.tutorial.controllers;
-
-  import org.springframework.web.bind.annotation.RestController;
-  import org.springframework.web.bind.annotation.GetMapping;
-
-
-  @RestController
-  public class HolaMundoController {
-
-      @GetMapping("/")
-      public String hola() {
-          return "Hola Mundo";
-      }
-
-  }
+    <modules>
+        <module>trayectos</module>
+		    <module>trayectos-completo</module>
+    </modules>
   ```
 
-### 7. Ejecute la aplicación
-
-- Desde línea de comandos, cambie el directorio actual al directorio del proyecto
-  ```
-  # cd <nombre de la carpeta con el proyecto>
-  cd tutorial
-  ```
-
-- Ejecute la aplicación usando `mvn spring-boot:run`
-  ```
-  mvn spring-boot:run
-  ```
-
-### 8. Visualice el funcionamiento del controlador
-
-- Use un navegador y observe el resultado de la aplicación
-  - En Gitpod, apenas ejecute la aplicación, debe aparecer una ventana preguntando si se desea ver la página web que acaba de lanzar
-  - Haga clic en "Open in browser" para ver el funcionamiento de la aplicación
-
-### 9. Elabore un método que reciba un parámetro
-
-> Las peticiones HTTP GET pueden enviar parámetros por medio del URL
-
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita saludar a alguna persona. Defina un controlador para la ruta `/saludo` que reciba como parámetro el campo `nombre`.
-
-  ```
-    @GetMapping("/saludo")
-    public String saludo(@RequestParam String nombre) {
-        return "Hola " + nombre;
-    }
-  ```
-
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/saludo?nombre=Jaime
-  ```
-
-### 10. Elabore un método que reciba dos parámetros
-
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita sumar dos números. Defina un controlador para la ruta `/suma` que reciba como parámetros los campos `a` y `b`.
-
-  ```
-    @GetMapping("/suma")
-    public String Suma(@RequestParam Integer a, @RequestParam Integer b) {
-        return "" + (a + b);
-    }
-  ```
-
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/suma?a=10&b=11
-  ```
-
-### 11. Elabore un método que reciba una variable de ruta y un parámetro
-
-- En la misma clase (o en otra anotada con `@RestController`) agregue un método que permita reciba un valor en la ruta del URL y reciba un parámetro adicional. Defina un controlador para la ruta `/validar` que reciba una variable de ruta `clase` y un parámetros `id`.
-
-  ```
-    @GetMapping("/validar/{clase}")
-    public String validar(@PathVariable String clase, @RequestParam String id) {
-        return "validando la clase " + clase +  " y el id " + id;
-    }
-  ```
-
-- Visualice el resultado usando el navegador
-  ```
-  https://<ruta de la aplicación>/validar/libro?id=10
-  ```
-
-
-  
