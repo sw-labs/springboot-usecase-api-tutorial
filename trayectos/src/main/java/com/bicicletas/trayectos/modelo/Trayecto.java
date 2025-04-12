@@ -1,7 +1,7 @@
 package com.bicicletas.trayectos.modelo;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,10 +28,10 @@ public class Trayecto {
     UUID id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    Date horaInicio;
+    LocalDateTime fechaHoraInicio;
 
     @Temporal(TemporalType.TIMESTAMP)
-    Date horaFin;
+    LocalDateTime fechaHoraFin;
 
     Long duracion;
 

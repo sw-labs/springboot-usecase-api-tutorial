@@ -1,6 +1,6 @@
 package com.bicicletas.trayectos.modelo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class Ubicacion {
     UUID id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    Date hora;
+    LocalDateTime fechaHora;
 
     Double longitud;
 

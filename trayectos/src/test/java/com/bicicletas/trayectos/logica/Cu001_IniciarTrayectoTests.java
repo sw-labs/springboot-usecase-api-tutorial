@@ -20,7 +20,7 @@ import com.bicicletas.trayectos.modelo.Ubicacion;
 import jakarta.transaction.Transactional;
 
 @SpringBootTest
-class TrayectosServiceTests {
+class Cu001_IniciarTrayectoTests {
 
 	@Autowired
 	TrayectosService servicio;
@@ -37,8 +37,18 @@ class TrayectosServiceTests {
 
 		try {
 
+		// -- Arrange: Prepara la prueba
+
+			// no se require hacer nada antes de la prueba
+
+
+		// -- Act: Ejecuta la operación que se debe probar		
+
 			// ejecuta el caso de uso
 			UUID id = servicio.iniciarTrayecto(27.0, 42.0);
+
+
+		// -- Assert: Revisa el resultado
 
 			// revisa si se almacenó el trayecto
 			Optional<Trayecto> resultado = trayectos.findById(id);
@@ -63,7 +73,36 @@ class TrayectosServiceTests {
 			assertEquals(1, ubicaciones.count(), "Agregó más de una ubicación a la base de datos");
 
 		} catch (Exception e) {
-			fail("Genero excepción y no debería", e);
+			fail("Genero excepción creando el trayecto y no debería", e);
+		}
+
+	}
+
+
+	@Test
+	@Transactional
+	void iniciarTrayectoConOtroActivo_falla() {
+
+		try {
+
+		// -- Arrange: Prepara la prueba
+
+			// inicia un Trayecto
+			servicio.iniciarTrayecto(27.0, 42.0);
+
+
+		// -- Act: Ejecuta la operación que se debe probar		
+
+			// inicia otro trayecto ejecutando el caso de uso
+			servicio.iniciarTrayecto(27.0, 42.0);
+
+
+		// -- Assert: Revisa el resultado
+
+			fail("Inició un trayecto cuando ya se tenía otro activo");
+
+		} catch (Exception e) {
+			// ok
 		}
 
 	}

@@ -1,6 +1,6 @@
 package com.bicicletas.trayectos.logica;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import com.bicicletas.trayectos.modelo.Trayecto;
 import com.bicicletas.trayectos.modelo.Ubicacion;
 
 import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional.TxType;
 
 // Controlador de casos de uso
 // tiene métodos, uno por cada caso de uso
@@ -26,7 +27,7 @@ public class TrayectosService {
 
     // CU001 Iniciar Trayecto
     // 1. Actor ingresa la ubicación actual
-    @Transactional
+    @Transactional(value = TxType.REQUIRED)
     public UUID iniciarTrayecto(Double longitud, Double latitud) 
         throws Exception
     {
@@ -38,17 +39,18 @@ public class TrayectosService {
         }
 
         // 3. Determina fecha y hora |
-        Date fechaActual = new Date();
+        LocalDateTime fechaActual = LocalDateTime.now();
 
         // 4. Determina un id para un nuevo trayecto |
         // 5. Almacena un nuevo trayecto con el id, fecha y hora de inicio, y longitud y latitud de ubicación inicial |
         Trayecto trayecto = new Trayecto();
-        trayecto.setHoraInicio(fechaActual);
+        trayecto.setFechaHoraInicio(fechaActual);
         trayecto.setEnProceso(true);
         trayecto = trayectos.save(trayecto);
 
         // 6. Agrega una ubicación con la longitud y latitud de ubicación inicial a la trayectoria
         Ubicacion ubicacion = new Ubicacion();
+        ubicacion.setFechaHora(fechaActual);
         ubicacion.setLongitud(longitud);
         ubicacion.setLatitud(latitud);
         ubicacion.setTrayecto(trayecto);
@@ -62,6 +64,33 @@ public class TrayectosService {
 
     }
 
+}    
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
