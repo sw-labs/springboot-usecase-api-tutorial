@@ -35,5 +35,12 @@ rectangle CycleTrainer {
 
 2. Cuando no existe un trayecto con ese id
 
+| Actor  | Sistema |
+|--------|---------|
+| | 2.1. retorna error "No existe un trayecto con ese id" |
 
 3. Cuando el trayecto seleccionado no está activo
+
+| Actor  | Sistema |
+|--------|---------|
+| | 3.1. retorna error "El trayecto no está activo" |
