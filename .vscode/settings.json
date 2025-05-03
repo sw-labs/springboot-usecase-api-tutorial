@@ -11,5 +11,7 @@
 
     "markdown.preview.openMarkdownLinks": "inEditor",
     "spring-boot.ls.java.home": "$SDKMAN_DIR/candidates/java/current",
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
 
 }
