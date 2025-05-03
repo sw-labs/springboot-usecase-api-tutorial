@@ -93,7 +93,7 @@ public class TrayectosController {
 
     // POST /api/trayectos/{id}/ubicaciones
     @Transactional
-    @PostMapping("/{id}/ultimaUbicacion")
+    @PostMapping("/{id}/finalizar")
     public ResponseEntity<UUID> finalizarTrayecto(
         @PathVariable UUID id,
         @RequestBody UbicacionDTO ubicacion) 
