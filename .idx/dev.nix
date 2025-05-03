@@ -19,12 +19,18 @@
   env = { };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
+    # "vscjava.vscode-java-pack"
     extensions = [
-      "vscjava.vscode-java-pack"
+      "redhat.java@1.40.0"
+      "vscjava.vscode-java-test@0.43.0"
+      "vscjava.vscode-java-debug"
+      "vscjava.vscode-java-dependency"
+      "vscjava.vscode-maven"
       "vmware.vscode-boot-dev-pack"
       "ms-vscode.live-server"
       "jebbs.plantuml"
       "vsls-contrib.codetour"
+      "ms-azuretools.vscode-docker"
     ];
 
     # Enable previews
