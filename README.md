@@ -1,4 +1,4 @@
-# Implementando Casos de Uso en una aplicación web en Spring
+# Implementando API para Casos de Uso en una aplicación web en Spring
 
 > En este tutorial implementará un API para los casos de uso en una aplicación web desarrollada en [Spring Boot](https://spring.io/projects/spring-boot). 
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a
 ### Para trabajar en su computador
 
 1. Navegue hasta el repositorio del proyecto en Github
-    - [https://github.com/sw-labs/springboot-usecase-tutorial](https://github.com/sw-labs/springboot-usecase-tutorial)
+    - [https://github.com/sw-labs/springboot-usecase-tutorial](https://github.com/sw-labs/springboot-usecase-api-tutorial)
 
 2. Cree una copia del repositorio usando el botón "Use this Template", la opción "Create a new repository"
     - asigne un nombre al nuevo repositorio
@@ -56,11 +56,29 @@ En este tutorial, aprenderá a
 
 - Ejecute el entorno de desarrollo cuando alguno de estos comandos
 
-    - [Ejecutar en Firebase Studio](https://idx.google.com/new?template=https://github.com/sw-labs/springboot-usecase-tutorial)
+    - [Ejecutar en Firebase Studio](https://idx.google.com/new?template=https://github.com/sw-labs/springboot-usecase-api-tutorial)
     - [Ejecutar en Github Codespaces](https://github.com/codespaces/new?skip_quickstart=true&machine=standardLinux32gb&repo=792310042&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
 
 ## Instrucciones
+
+1. Revise el modelo de clases del proyecto
+    * [clases-dominio.md](docs/clases-dominio.md)
+    * [clases-diseno.md](docs/clases-diseno.md)
+
+2. Revise la documentación de los casos de uso
+
+    * [CU001-iniciar-trayecto.md](docs/use-cases/CU001-iniciar-trayecto.md)
+    * [CU002-registrar-ubicacion.md](docs/use-cases/CU002-registrar-ubicacion.md)
+    * [CU003-finalizar-trayecto.md](docs/use-cases/CU003-finalizar-trayecto.md)
+    * [CU004-consultar-trayecto.md](docs/use-cases/CU004-consultar-trayecto.md)
+    * [CU005-consultar-resumen-trayectos.md](docs/use-cases/CU005-consultar-resumen-trayectos.md)
+
+3. Revise la documentación de los casos de uso
+
+    * [API.md](docs/api/api.md)
+
+4. Desarrolle los métodos que implementan el API REST para los casos de uso
 
 
 ## Solución
