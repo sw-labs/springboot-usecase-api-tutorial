@@ -12,7 +12,8 @@
 			"installMaven": "true",
 			"mavenVersion": "3.9.9"
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {} 
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/node:1": {}
 	},
 
 	// Configure tool-specific properties.
@@ -45,16 +46,20 @@
 				"ms-vscode.live-server",
 				"jebbs.plantuml",
 				"vsls-contrib.codetour",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"Postman.postman-for-vscode"
 			]
 		}
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
+	// "postCreateCommand": [],
+
+	// run commands inside the container before assigning it to the user
+	"updateContentCommand": "npm install -g npm@11.3.0; npm install -g newman"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

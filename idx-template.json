@@ -1,6 +1,6 @@
 {
-    "name": "Tutorial de Casos de Uso",
-    "description": "Tutorial implementando casos de uso en una aplicación web Java usando Spring Boot",
+    "name": "Tutorial de API para Casos de Uso",
+    "description": "Tutorial implementando un API para los casos de uso en una aplicación web Java con Spring Boot",
     "categories": ["Backend"],
     "icon": "https://www.gstatic.com/monospace/250314/icon-192.png",
     "publisher": "SW Labs"

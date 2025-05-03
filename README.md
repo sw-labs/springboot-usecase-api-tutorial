@@ -1,15 +1,15 @@
 # Implementando Casos de Uso en una aplicación web en Spring
 
-> En este tutorial implementará unos casos de uso en una aplicación web desarrollada en [Spring Boot](https://spring.io/projects/spring-boot). 
-> Para implementar cada caso de uso es necesario implementar métodos que ejecutan el caso de uso y métodos que implementan pruebas automatizadas. 
+> En este tutorial implementará un API para los casos de uso en una aplicación web desarrollada en [Spring Boot](https://spring.io/projects/spring-boot). 
 
 ---
 
 ## Objetivos de aprendizaje
 
 En este tutorial, aprenderá a 
-- Desarrollar métodos que implementan casos de uso
-- Desarrollar métodos que implementan pruebas automatizadas para los casos de uso
+- Desarrollar métodos que implementan el API REST para los casos de uso
+- Desarrollar clases DTO que representan los datos de entrada y salida de los métodos del API 
+- Desarrollar métodos que implementan pruebas automatizadas para las API
 
 
 ## Requisitos previos
@@ -61,24 +61,6 @@ En este tutorial, aprenderá a
 
 
 ## Instrucciones
-
-1. Revise el modelo de clases del proyecto
-    * [clases-dominio.md](docs/clases-dominio.md)
-    * [clases-diseno.md](docs/clases-diseno.md)
-
-2. Revise la documentación de los casos de uso
-
-    * [CU001-iniciar-trayecto.md](docs/use-cases/CU001-iniciar-trayecto.md)
-    * [CU002-registrar-ubicacion.md](docs/use-cases/CU002-registrar-ubicacion.md)
-    * [CU003-finalizar-trayecto.md](docs/use-cases/CU003-finalizar-trayecto.md)
-    * [CU004-consultar-trayecto.md](docs/use-cases/CU004-consultar-trayecto.md)
-    * [CU005-consultar-resumen-trayectos.md](docs/use-cases/CU005-consultar-resumen-trayectos.md)
-
-3. Ejecute el Code Tour de `Código Inicial` y revise el código existente en el proyecto.
-
-4. Ejecute el Code Tour de `Paso a Paso` y modifique el proyecto para implementar el caso de uso CU002
-
-5. Implemente los otros casos de uso CU003, CU004 y CU005.
 
 
 ## Solución

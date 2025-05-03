@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "947ac984-23b9-4682-b252-4f8552bf7e35",
+		"name": "Trayectos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44605316"
+	},
+	"item": [
+		{
+			"name": "todos los trayectos - vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Solicita todos los trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    // cantidad de trayectos\r",
+							"    pm.collectionVariables.set(\"cant_trayectos\", jsonData.length);\r",
+							"\r",
+							"    // id del último trayecto\r",
+							"    // actualiza la variable\r",
+							"    // si no tiene trayectos en la respuesta\r",
+							"    if (jsonData.length == 0) {\r",
+							"        console.log(\"No hay trayectos en la BD\");\r",
+							"\r",
+							"    } else {\r",
+							"        pm.variables.set(\"id_trayecto\", jsonData[jsonData.length-1].id);\r",
+							"        console.log(\"id en la respuesta: \" + jsonData[jsonData.length-1].id);    \r",
+							"\r",
+							"    }\r",
+							"    \r",
+							"    console.log(\"id en las variables: \" \r",
+							"        + pm.collectionVariables.get(\"id_trayecto\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/trayectos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "iniciarTrayecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Inicia el trayecto y no falla\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Obtiene el id del nuevo trayecto\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"-\");\r",
+							"\r",
+							"    const respuesta = pm.response.text().replaceAll(\"\\\"\", \"\");\r",
+							"    console.log(\"id trayecto: \" + respuesta);\r",
+							"\r",
+							"    pm.collectionVariables.set(\"id_trayecto\", respuesta);\r",
+							"    console.log(\"id en las variables: \" \r",
+							"        + pm.collectionVariables.get(\"id_trayecto\"));\r",
+							"        \r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitud\": \"72.0\",\r\n    \"latitud\": \"24.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/trayectos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todos los trayectos - con uno",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Solicita todos los trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Solicita todos los trayectos y trae uno más\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    var cant_trayectos = pm.collectionVariables.get(\"cant_trayectos\");\r",
+							"    pm.expect(jsonData.length).to.eql(1 + parseInt(cant_trayectos));\r",
+							"\r",
+							"    pm.variables.set(\"id_trayecto\", jsonData[jsonData.length-1].id);\r",
+							"    console.log(\"id en la respuesta: \" + jsonData[jsonData.length-1].id);  \r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/trayectos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar Ubicacion al Trayecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Agrega ubicación al trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitud\": \"72.0\",\r\n    \"latitud\": \"24.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/trayectos/{{id_trayecto}}/ubicaciones",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos",
+						"{{id_trayecto}}",
+						"ubicaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todos los trayectos - con dos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Solicita todos los trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Solicita todos los trayectos y trae uno más\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var cant_trayectos = pm.collectionVariables.get(\"cant_trayectos\");\r",
+							"    pm.expect(jsonData.length).to.eql(1 + parseInt(cant_trayectos));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/trayectos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finalizar Trayecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Finaliza el trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitud\": \"72.0\",\r\n    \"latitud\": \"24.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/trayectos/{{id_trayecto}}/ultimaUbicacion",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos",
+						"{{id_trayecto}}",
+						"ultimaUbicacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todos los trayectos - finalizado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Solicita todos los trayecto y no falla\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Solicita todos los trayectos y trae uno más\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var cant_trayectos = pm.collectionVariables.get(\"cant_trayectos\");\r",
+							"    pm.expect(jsonData.length).to.eql(1 + parseInt(cant_trayectos));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"El primer trayecto esta no activo tiene tres ubicaciones\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var cant_trayectos = jsonData.length-1;\r",
+							"    var trayecto = jsonData[cant_trayectos];\r",
+							"\r",
+							"    pm.expect(trayecto.enProceso).to.eql(false);\r",
+							"    pm.expect(trayecto.ubicaciones.length).to.eql(3);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/trayectos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"trayectos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "id_trayecto",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "cant_trayectos",
+			"value": "0",
+			"type": "string"
+		}
+	]
+}
