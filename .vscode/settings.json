@@ -10,5 +10,6 @@
     "plantuml.exportOutDir": "/docs/images",
 
     "markdown.preview.openMarkdownLinks": "inEditor",
+    "spring-boot.ls.java.home": "$SDKMAN_DIR/candidates/java/current",
 
 }
