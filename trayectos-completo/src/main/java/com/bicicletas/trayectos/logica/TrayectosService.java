@@ -117,7 +117,7 @@ public class TrayectosService {
         trayectoActual = trayectos.save(trayectoActual);
 
         // returna el id
-        return trayectoActual.getId();
+        return ubicacion.getId();
 
     }
 
